@@ -1,2 +1,2 @@
 # book
-book draft
+This is a repository for book draft.
