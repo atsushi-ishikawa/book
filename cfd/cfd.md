@@ -1,4 +1,4 @@
-### 3-2. Computational Fluid Dynamics
+# 3-2. Computational Fluid Dynamics
 
 * One of these characteristics is the mixing of fluids, which was addressed for both static mixing elements and more complex systems.
 * Additionally, CFD allows to predict heat transfer and the outcome of reactions in chemical applications.

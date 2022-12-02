@@ -1,4 +1,4 @@
-# II. Application
+# Application
 ## 7. Heterogeneous Catalysts
 * Heterogeneous catalysts have the desirable property that after reaction they are easily separated from the reactants and products. This is an important reason why heterogeneous catalysts are often preferred in industry, in particular for high-volume products, for instance, in the energy sector.
 
