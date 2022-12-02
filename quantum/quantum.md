@@ -8,7 +8,7 @@
 * Homogeneous catalysts operate in the same phase as the reactants. This category involves many important reactions in organic chemistry, where the molecular catalyst such as transition metal complexes work as catalyst and convert the reactant species into product species. As a result the homogeneous catalysis plays a significant role in drug synthesis or polymer science.
 * Enzyme catalysts are specialized proteins. The chemically active part of enzymes is often a tiny part of the protein, and enzyme catalysis can be viewed as a special kind of heterogeneous catalysis. Obviously, this field is important in biochemistry or pharmacology.
 
-# I. Basics in Theoretical and Computational Methods
+## 0. Basics in Theoretical and Computational Methods
 * The fundamental players in the catalytic science is atoms and molecules, as the catalysis is the object that is promoting chemical reactions.
 * Chemical reactions involve the formation and the breaking of the chemical bond, and because of this electrons consisting the chemical bond is also a matter of subject.
 * Since the behavior of microparticles such as electrons or nucleus is described the quantum physics, we should start from such area. In other words, catalytic science (and also surface science) is a research field at the border between chemistry and physics. Most of the theoretical methods have been derived either from quantum physics or from condensed matter physics.
