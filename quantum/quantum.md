@@ -689,10 +689,53 @@ $$
 ##### Dimer method
 * 
 
-
 ### 1-X. Molecular dynamics
+* Nuclei are heavy enough that they, to a good approximation, behaves as classical particles and their dynamics can thus be simulated by soloving the Newton's equation, ${\bf F} = m{\bf a}$, in differential form
+$$
+-\frac{dV}{d{\bf r}} = m\frac{d^2{\bf r}}{dt^2}
+$$
+* Here $V$ is the potential energy at potition ${\bf r}$. The vector ${\bf r}$ contains the coordinates for all the particles, that is in Cartesian coordinates it is a vector of length $3N_\text{atom}$. The left-hand side is the negative of the energy gradient, also called the force (${\bf F}$) on the particle(s).
+* Given a set of particles with positions ${\bf r}_i$, the positions at small time step $\Delta t$ later are given by a Taylor expansion:
+$$
+\begin{align*}
+{\bf r}_{i+1} = {\bf r}_i + \frac{\partial{\bf r}}{\partial t}\Delta t + \frac{1}{2}\frac{\partial^2{\bf r}}{\partial t^2}\Delta t^2 + \frac{1}{6}\frac{\partial^3{\bf r}}{\partial t^3}\Delta t^3 + \cdots \\
+= {\bf r}_i + {\bf v}_i \Delta t + \frac{1}{2}{\bf a}_i\Delta t^2 + \frac{1}{6}{\bf b}_i\Delta t^3 + \cdots
+\end{align*}
+$$
+* The velocities ${\bf v}_i$ are the first derivaties of the positions with respect to time at $t_i$, the accelerations ${\bf a}_i$ are the second derivatives at $t_i$, and the changes in accelerations (${\bf b}_i$) are the third derivates, etc.
+* The positions at small time step $\Delta t$ earlier are derived from Eq.(15.3) by substituting $\Delta t$ with $-\Delta t$:
+$$
+{\bf r}_{i-1} = {\bf r}_i - {\bf v}_i\Delta t + \frac{1}{2}{\bf a}_i\Delta t^2 + \frac{1}{6}{\bf b}_i\Delta t^3 + \cdots
+$$
+* Addition of Eqs.(15.3) and (15.4) gives a recipe for predicting the position at time step $\Delta t$ later from the current and previons positions, and the current acceleration. The latter can be calculated from the force, or equivalently, the potneital $V$:
+$$
+{\bf r}_{i+1} = \left(2{\bf r}_i - {\bf r}_{i-1}\right) + {\bf a}_i\Delta t^2 + \cdots \\
+{\bf a}_i = \frac{{\bf F}_i}{m_i} = -\frac{1}{m_i}\frac{dV}{d{\bf r}_i}
+$$
+* This is the *Verlet* algorithm for solving the Newton's equation numerically.
+* Note that the term involving ${\bf b}$ disappears, that is the equation is correct to the thrid order in $\Delta t$.
+* The Verlet algorithm has the numerical disadvantage that the new positions are obtained by adding a term proportional to $\Delta t^2$ to a difference in positions $(2{\bf r}_i - {\bf r}_{i-1})$. Since $\Delta t$ is a small number and $(2{\bf r}_i - {\bf r}_{i-1})$ is a difference between two large numbers, this may lead to truncation errors due to finite precision.
+* The Verlet algorithm furthermore has the disadvantage that velocites do not appear explicitly, which is problem in generating ensembles with constant temperature, as discussed in next section.
+* The numerical aspect and the lack of explicit velocities in the Verlet algorithm can be remediced by the *leap-frog* algorithm. Performing expansions analogous to Eqs.(15.3) and (15.4) with half a time step followed by subtraction gives
+$$
+{\bf r}_{i+1} = {\bf r}_i + {\bf v}_{i+1/2}\Delta t
+$$
+* The velocities is obtained by analogous expansions to give
+$$
+{\bf v}_{i+1/2} = {\bf v}_{i-1/2} + {\bf a}_i\Delta t
+$$
+* Eqs.(15.8) and (15.9) define the leap-frog algorithm.
+* In terms of theoretical accuracy, the leap-frog is also of third-order, likewise the Verlet algorithm, but the numerical accuracy is better.
+* The velocity now appears directly, which facilitates a coupling to an external heat bath.
+* The disadvantage is that the positions and velocites are not known at the same time; they are always out of phase by half a time step. This problem can be removed by the *velocity Verlet* algorithm, where the atoms are propagated according to
+$$
+{\bf r}_{i+1} = {\bf r}_i + {\bf v}_i\Delta t + \frac{1}{2}{\bf a}_i\Delta t^2 \\
+{\bf v}_{i+1} = {\bf v}_i + \frac{1}{2}\left({\bf a}_i + {\bf a}_{i+1}\right)\Delta t
+$$
+* The preference of Verlet and leap-frog-type algorithms over, for example, the Runge-Kutta methods for solving the differential equation in MD simulations is that they are time-reversible, which in general tend to improve the energy conservation over long simulation times.
+
 #### Constrained and biased sampling methods
-* A straightforward sampling of the reaction path is not possible since the dynamics at ordinary temperatures only very rarely visit the high-energy region near the TS( unless the activation energy is close to zero).
+* A straightforward sampling of the reaction path is not possible since the dynamics at ordinary temperatures only very rarely visit the high-energy region near the TS(unless the activation energy is close to zero).
 * In order to achieve a sampling of a specific region of the free energy surface with MD, the sampling must be giased toward a specific volume of phase space.
 * A central component in biased sampling method is the selection of one or a few *collective variables (CV)* that can be used to describe the reaction path.
 * A CV can be any function of atomic coordinates, but it must be selected and defined by the user based on the given application.
