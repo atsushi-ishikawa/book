@@ -1492,7 +1492,82 @@ $$
 * In the figure, four stable surface structures (${\rm O^{br}/-}$, ${\rm O^{br}/O^{cus}}$, ${\rm O^{br}/CO^{cus}}$, ${\rm CO^{br}/CO^{cus}}$) are shown. Among them, ${\rm O^{br}/CO^{cus}}$ surface is directly related to the function for the catalytic CO oxidation on RuO2 surface, because both CO and O are co-exist in the proximity on the surface. On the other hand, other three cases the surface is covered with only one reactant or adsorption of CO is weak (${\rm O^{br}/-}$). Therefore, we can expect the higher catalytic activity for CO oxidation in $(\mu_{\rm CO}, \mu_{\rm O})$ regions corresponding to ${\rm O^{br}/CO^{cus}}$.
 
 ### 5-2. Modeling Homogeneous Systems
-#### solution
+##### Born/Onsager/Kirkwood models
+* The numerical aspects of solving the Poisson or Poisson-Boltzmann equations make them too demanding for use in connection with, for example, geometry optimizations or simulations of macromolecules.
+* For certain special cases, however, the Poisson equation (Eq.(15.68)) can be solved analytically, and this forms the basis for many approximate models for estimating the electronic component in Eq.(15.65).
+* The simplest reaction field model is a spherical cavity, where only the lowest-order electric moment of the molecule is taken into account.
+* For a net charge $q$ in a cavity with radius $a$, the difference in energy between a vacuum and a medium with a dielectric constant $\epsilon$ is given by the *Born model*.
+$$
+\Delta G_{\rm elec}(q) = -\left(1-\frac{1}{\epsilon}\right)\frac{q^2}{2a}
+$$
+* It can be noted that the Born model predicts equal solvation energies for positive and negative ions of the same size, which is not the observed behavior in solvent such as water.
+* The reciprocal dependence on the dielectric constant furthermore means that the calculated solvent effect is sensitive to the variation of $\epsilon$ in the low dielectric limit but is virtually unaffected in the high dielectric limit.
+
+* Using partial atomic charges in Eq.(15.76) is iften caleld the *Generalized Born model*. In this method, the Coulomb interaction between the partial charges $Q$ is combined with the Born formula by means of a function $f_{ij}$ depending on the internuclear distance and Born radii for each of the two atoms, $a_i$ and $a_j$.
+$$
+\Delta G_{\rm elec}(Q_i, Q_j) = -\left(1-\frac{1}{\epsilon}\right)\frac{Q_i Q_j}{f_{ij}} \\
+f_{ij} = \sqrt{r_{ij}^2 + a_{ij}^2\exp(-D)} \\
+a_{ij}^2 = a_i a_j, \ \  D=\frac{r_{ij}^2}{4a_{ij}^2}
+$$
+* The effective Born radius for a given atom depends on the nature and position of all the atoms. The dependence on the other atoms is in practive relatively weak, and updates of the $a_i$ parameters can be done at suitable intervals, for example when updating the non-bonded list in an optimization or simulation.
+* The boundary between the solute and solvent is usually taken as a modified van der Waals surface generated from the unification of atomic van der Waals radii scaled by a suitable factor.
+* The cavity/dispersion terms are parametrized according to the SAS, as in Eq.(15.67).
+
+* The dipole in a spherical cavity is known as the *Onsager model*, which for a dipole moment $\mu$ leads to an energy stabilization given by
+$$
+\Delta G_{\rm elec}(\mu) = -\frac{\epsilon-1}{2\epsilon+1}\frac{\mu^2}{a^3}
+$$
+* The *Kirkwood model* refers to a general multipole expansion in a spherical cavity.
+
+* The charge distribution of the molecule can be represented either as atom-centerd partial harges or as a multipole expansion. The lowest-order approximation for a neutral molecule considers only the dipole moment.
+* This may be a quite poor approximation and fails completely for symmetric molcules that do not have a dipole moment.
+* It is often necessary to extend the expansion up to order six or more, in order to obtained converged results, that is including dipole, quadrupole, octapole, etc., moments.
+* Furthermore, only for small and symmetric molecules can be approximation of a spherical or ellipsoidal cavity be considered realistic. The use of the Born/Onsager/Kirkwood models should therefore only be considered as a rough estimate of the solvent effects, and quantitative results can rarely be obtained.
+
+##### Self-consistent reactino field models
+* A classical description of the molecule $M$ in Figure 15.9 can be a force field with (partial) atomic charges, while a quantum chemical description is also possible and it involves calculation of the electronic wave function.
+* When a quantum description of $M$ is employed, the calculated electric moments induce charges in the dielectric medium, which in turn acts back on the molecule, causing the wave function to respond and thereby changing the electric moments, etc.
+* The interaction wit hthe solvent model must thus be calcualted by an iterative procedure, leading to various *self-consistent reaction field (SCRF)* models.
+* For spherical or ellipsoidal cavities, the Poisson equation can be solved analytically, but for molecular-shaped surfaces it must be done numerically.
+* This is typically done by reformulating it in terms of a surface integral over surface charges and solving this numerically by dividing the surface into small fractions called *tesserae*, wach having an associated charge $\sigma({\bf r}_s)$.
+* The surface charges are related to the electric field ${\bf F}$ (the derivative of the potential) perpendicular to the surface by
+$$
+4\pi\epsilon\sigma({\bf r}_s) = (\epsilon-1){\bf F}({\bf r}_s)
+$$
+* Once $\sigma({\bf r}_s)$ is determined, the associated potential is added as an extra term to the Hamiltonian operator:
+$$
+\phi_\sigma({\bf r}) = \int \frac{\sigma({\bf r}_s)}{|{\bf r}-{\bf r}_s|}d{\bf r}_s \\
+H = H_0 + \phi_\sigma
+$$
+* The potential $\phi_\sigma$ from the surface charge is given by the molecular charge distribution (Eq.(15.81)), but also enters the Hamiltonain and this influences the molecular wave function. The procedure is therefore iterative.
+* FOr the case of the Onsager model (spherical cavity, dipole moment only), the term added to the Hamiltonian is given by
+$$
+\phi_\sigma = -{\bf r}\cdot{\bf R}
+$$
+* Here, ${\bf r}$ is the dipole moment operator (i.e. the position vector) and ${\bf R}$ is proportional to the molecular dipole moment, with the proportionality constant depending on the radius of the cavity and the dielectric constant:
+$$
+{\bf R} = g \boldsymbol\mu \\
+g = \frac{2(\epsilon-1)}{(2\epsilon+1)a^3}
+$$
+* The $\phi_\sigma$ operator at the Hatree-Fock level of theory corresponds to the addtion of an extra term to the Fock matrix element
+$$
+F_{\alpha\beta} = \braket{\chi_\alpha|{\bf F}|\chi_\beta} - g\boldsymbol\mu\braket{\chi_\alpha|{\bf r}|\chi_\beta}
+$$
+* The addtional integrals are just expectation values of $x$, $y$, and $z$ coordinates, and their inclusion requires very little additional computationa effort. Generalization to higher-order multipole is straightforward.
+* The cavity size in Born/Onsager/Kirkwood models strongly influences the calculated stabilization, but there is no consensus on how to choose the cavity radius.
+* More sophisticated models employ the molecular-shaped cavities, but there is again no consensus on the exact procedure.
+* The cavity is often defined based on the van der Waals radii of the atoms in the molecule, multiplied by an empirical factor e.g. 1.2. The molecular volume may alternatively be calculated directly from the electronic wave function, for example by using an isodensity surface corresponding to a value of $10^{-3} - 10^{-4}$.
+* The *Polarizable Continuum Model (PCM)* employs a van der Waals cavity formed by interlocking atomic van der Waals radii scaled by an empirical factor, a detailed description of the electrostatic potential, and parametrizes the cavity/dispersion contributions based on the surface area. Several different implementations have been published, of which the integral equation formalism PCM (IEFPCM) is the most general.
+* The *Conductor-like Screening Model (COSMO)* also employs molecular-shaped cavities and represents the electrostatic potential by partial atomic charges. COSMO may be considered as a limiting case of the PCM model, where the dielectric constant is set to infinity. The *COSMO-RS (real solvent)* includes additional terms in order to model, for example, hydrogen bonding in terms of the surface charges.
+* The *Solvent Models x (SMx, x being a version number)* developed by Cramer and Truhlar are generalized Born-type model, where the partial atomic charges are calculated from a wave function and the cavity/dispersion terms in Eq.(15.65) are parametrized based on the solvent exposed surface area (Eq.(15.67)). The version number of these models reflects increasingly sophisticated parametrizations.
+
+* It should be noted that the parametrization of continuum solvent models, such as, for example the cavity size defined by the atomic radii, is against experimental free energies, which implicitly include entropy and finite temperature effects.
+* These effects should therefore not be added from calculated frequency, as this effectively would be a double counting.
+* Furthermore, the use of the ideal-gas rigid-rotor harmonic oscillator approximation for calculated finite temperature effects is unlikely to be a good approximation for condensed phases.
+
+* The "mixed" solvent models, where the first solvation shell is accounted for by including a number of solvent molecules, implicitly include the solute-solvent cavity/dispersion terms, although the corresponding terms between the solvent molecules and the continuum are usually neglected.
+* Once discrete solvent molecules are included, however, the problem of configuration sampling arises. Furthermore, a parametrization of the continuum model against experimental data must be done by explicitly taking the first solvation shell into account.
+* Nevertheless, the first solvation shell is in many cases by far the most important, and mixed model may yield substantially better results than pure continuum model, at the price of an increased computational effort.
 
 ### 5-3. Comparing Experiment and Computational Results
 ##### TPD
