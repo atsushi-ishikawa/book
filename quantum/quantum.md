@@ -1585,7 +1585,7 @@ $$
 * It is often necessary to extend the expansion up to order six or more, in order to obtained converged results, that is including dipole, quadrupole, octapole, etc., moments.
 * Furthermore, only for small and symmetric molecules can be approximation of a spherical or ellipsoidal cavity be considered realistic. The use of the Born/Onsager/Kirkwood models should therefore only be considered as a rough estimate of the solvent effects, and quantitative results can rarely be obtained.
 
-##### Self-consistent reactino field models
+##### Self-consistent reaction field models
 * A classical description of the molecule $M$ in Figure 15.9 can be a force field with (partial) atomic charges, while a quantum chemical description is also possible and it involves calculation of the electronic wave function.
 * When a quantum description of $M$ is employed, the calculated electric moments induce charges in the dielectric medium, which in turn acts back on the molecule, causing the wave function to respond and thereby changing the electric moments, etc.
 * The interaction wit hthe solvent model must thus be calcualted by an iterative procedure, leading to various *self-consistent reaction field (SCRF)* models.
