@@ -1588,7 +1588,7 @@ $$
 ##### Self-consistent reaction field models
 * A classical description of the molecule $M$ in Figure 15.9 can be a force field with (partial) atomic charges, while a quantum chemical description is also possible and it involves calculation of the electronic wave function.
 * When a quantum description of $M$ is employed, the calculated electric moments induce charges in the dielectric medium, which in turn acts back on the molecule, causing the wave function to respond and thereby changing the electric moments, etc.
-* The interaction wit hthe solvent model must thus be calcualted by an iterative procedure, leading to various *self-consistent reaction field (SCRF)* models.
+* The interaction with the solvent model must thus be calcualted by an iterative procedure, leading to various *self-consistent reaction field (SCRF)* models.
 * For spherical or ellipsoidal cavities, the Poisson equation can be solved analytically, but for molecular-shaped surfaces it must be done numerically.
 * This is typically done by reformulating it in terms of a surface integral over surface charges and solving this numerically by dividing the surface into small fractions called *tesserae*, wach having an associated charge $\sigma({\bf r}_s)$.
 * The surface charges are related to the electric field ${\bf F}$ (the derivative of the potential) perpendicular to the surface by
