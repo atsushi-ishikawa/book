@@ -295,6 +295,8 @@ $$
 * One of the earliest GGA functional was proposed by A. D. Becke as a correction to the LSDA exchange energy. This is called B88 (Becke, 1988) exchange functional.
 * A popular correlation functional at GGA level is LYP functional, proposed by Lee, Yang, and Parr.
 * J. P. Perdew and co-workers have proposed several XC functionals based on removing spurious oscillations in the Taylor-like expansion to the first-order, and also ensuring that the exchange and correlation holes integrate to -1 and 0. The resulting functional are PW86 (Perdew-Wang 1986), PW91 (Perdew-Wang 1991), and PBE (Perdew-Burke-Ernzerhof).
+* The parameters in the PBE functional are non-empirical, that is they are  not obtained by fitting to experimental data, but derived from the basic requirements for the XC functional.
+* The PBE functional has been slightly modified to improve the performance for periodic systems (RPBE), while this modification actually destroys the hole condition for the exchange energy.
 
 #### meta-GGA
 * The logical extension of GGA method is to allow the EX functional to include the variables of higher order derivatives of the electron density, for example the Laplacian ($\nabla^2 \rho$) as the second-order derivative term.
@@ -304,6 +306,32 @@ $$
 $$
 * and this approach is more often used.
 * Including of either the Laplacian or the orbital kinetic energy density $\tau$ as a variable leads to so-called *meta-GGA functionals*.
+
+#### Dispersion-corrected methods
+* One of the serious shortcomings of standard DFT methods is the inability to describe the dispersion forces (part of the van der Waals-type interactions).
+* Many functionals provide a purely repulsive interaction between rare gas atoms, while others describe a weak stabilization interaction, but fail to have the correct $R^{-6}$ long-range distance behavior.
+* Although the dispersion is a short-ranged weak interaction, it is cumulative, and therefore becomes increasingly important as the system gets larger.
+* S. Grimme has proposed to include dispersion by additive empirical terms.
+* The parametrizatino in the earliest models simply included an $R^{-6}$ energy term for each atom pair, with an atom-dependent $C_6$ parameter. The method has been refined by including higher-order terms ($R^{-8}, $R^{-10}$) to better describe the medium-range dispersino and making the parameters depend on the atomic environment in terms of the number of directly bonded atoms.
+* Adding such attractive energy terms has the potential problem of divergence for short interatomic distances and is conseqently often used in connection with a dampling function:
+$$
+\Delta E_{\rm disp} = -\sum_{n=6(8,10)}s_n\sum_{AB}^{N_{atoms}}\frac{C_n^{AB}}{R_{AB}}f_{\rm damp}(R_{AB})
+$$
+* A complication is that the parametrization of the dispersion correctino depends on the underlying XC functional, as different functinoals via their parametrization may include some of the short-range interaction, and this can be taken into account by a functional-dependent scaling factor $s_n$ in the above equation.
+* Such dispersion corrected methods are denoted with a D/D2/D3 after the DFT acronym, for example PBE-D3.
+
+* There is an another approach to the dispersion correction, that is making it to be directly dependent on the actual electron density. This is done by writing it as a six-dimensional integral over electron densities with an appropriate *dispersion kernel* $\Phi$ (the factor 1/2 corrects for double counting):
+$$
+\Delta E_{\rm disp} = \frac{1}{2}\int\rho({\bf r})\Phi({\bf r}, {\bf r}')\rho({\bf r}')d{\bf r}d{\bf r}'
+$$
+* Such dispersion methods are often denoted as *non-local*, as they depend on electron densities that can be far apart. The *van Vohris-Vydorv (VV10) kernel* has the form shown in
+$$
+\Phi({\bf r},{\bf r}') = -\frac{3}{2}\left[g({\bf r})g({\bf r}')\left\{g({\bf r})+g({\bf r}')\right\}\right]^{-1}
+$$
+* Here the $g({\bf r})$ or $g({\bf r}')$ functions are defined below with the $C$ and $b$ parameters chosen to provide the correct asymptotic $C_6$ coefficient and controlling the short-range dampling, respectively:
+$$
+g({\bf r}) = |{\bf r}-{\bf r}'|^2\sqrt{C\left(\frac{\nabla\rho({\bf r})}{\rho({\bf r})}\right) + \frac{4\pi}{3}\rho({\bf r})} + b\frac{3\pi}{2}\left(\frac{\rho({\bf r})}{9\pi}\right)^{1/6}
+$$
 
 #### Computational issue
 * Once an XC functional has been selected, the computational problem of the Kohn-Sham DFT is very similar to the Hartree-Fock theory; determine a set of orthogonal orbitals that minimizes the energy.
