@@ -724,6 +724,21 @@ F_{i, \rm{update}} = F_i^{\perp} + F_{i, \rm{spring}}^{\parallel}
 $$
 * If all the images in the calculation lie on an MEP, then this update force is zero for every image and the calculation has converged.
 
+<!--Jensen start-->
+
+* The *Nudged Elastic Band (NEB)* method defines a target function ("elastic band") as a sum of energies of all images and adds a penalty term having the purpose of distributing the images along the path. A single spring constant $k$ will attempt to distribute the images evenly along the path, but it may also be taken to depend on the energy in order to provide a better sampling near the saddle point:
+$$
+T_{\rm NEB}({\bf R},{\bf x}_1,{\bf x}_2, \cdots, {\bf x}_M, {\bf P}) = \sum_{i=1}^{M}E({\bf x}_i) + \sum_{i=1}^{M-1}\frac{1}{2}k({\bf x}_{i+1}-{\bf x}_i)^2
+$$
+* A straightforward minimization of $T_{\rm NEB}$ gives a reaction path that has a tendency to cut courners if the spring constant $k$ is too large and a problem of image sliding donw towards the minima if the spring constant is too small.
+* These problems can of course be solved by employing a large number of images, but that would render the optimization inefficient. The "corner-cutting" and "down-sliding" problemsm for a manageable number of images can be alleviated by "nudging" the elastic band, that is using only the component of the spring force parallel to the tangent of the path, and only the perpendicular component of the energy force in the optimization on $T_{\rm NEB}$.
+* The parallel forces for each image are obtained by projecting the total force onto the reaction path tangent, and the perpendicular components by an orthogonal projection. Since the reaction path is presented by a discrete set of images, the tangent to the path at a give nimage must be estimated from the neighboring images.
+* The magnituide of the spring constant influences the optimization efficiency; a small value causes an erratic coverage of the reaction path, while a large value forces the effort on distributing the image rather than on finding the reaction path, and consequently slows down the convergence.
+* The NEB algorithm defines the tangent as the difference vector of the neighboring images.
+* In the *Climbing Image NEB (CINEB)* version, one of the images is allowed to move along the elastic band, to become the exact saddle point.
+
+<!--Jensen end-->
+
 ##### Dimer method
 * 
 
