@@ -307,6 +307,33 @@ $$
 * and this approach is more often used.
 * Including of either the Laplacian or the orbital kinetic energy density $\tau$ as a variable leads to so-called *meta-GGA functionals*.
 
+#### Hybrind functionals
+<!-- Tsuneda start -->
+* Hybrid functionals mix the GGA exchange functionals with the Hatree-Fock exchange integral at a constant ratio, based on the concept of the adiabatic connection, whihc makes the Kohn-Sham energies of the independent electron model link to those of the fully interacting electron one. That is, hybrid functionals are constructed by connecting exchange functionals, which are assumed as the exchange energies of the independent electorn systems, to the Hatree-Fock exchange inegral, which are taken as the exchange energies for the fully interacting system:
+$$
+E_x = \int_0^1 E_x^\lambda d\lambda \approx E_x^{GGA} + \lambda (E_x^{HF} + E_x^{GGA})
+$$
+* where $\lambda$ is termed as the coupling strength parameter.
+* As hybrid functionals, various types of functionals have been developed, depending on the mixing ratios and the number of parameters.
+* The B3LYP hybrid functional is one of the most frequently used functional in quantum chemistry aclculations. This functional uses three parameters as the mixing ratios to form the adiabatic connections, 1) between the Hatree-Fock exchange integral and the LDA exchange functional, 2) include the attenuated GGA term of the B88 exchange functional, and 3) between the LYP correlation functional and the LDA correlation functional:
+$$
+E_{xc}^{B3LYP} = E_{xc}^{LDA} + a_1(E_x^{HF}-E_x^{LDA}) + a_2\Delta E_x^{B88} + a_3(E_c^{LYP}-E_c^{VWN-LDA})
+$$
+* The mixing ratios are fitted to optimize the chemial properties of the G2 benchmark set, containing several dozen atoms and small molecules.
+* Besides the parameters in the XC functionals, the semiempirical parameters are $a_1=0.2$, $a_2=0.72$, and $a_3=0.81$.
+* For the mixing of the Hartree-Fock exchange integral, it is often interpreted that it intends to supplement the insufficient exchange interactions in the LDA functional, which causes the overestimation of binding energies, with the partial replacement of this functional with the Hatree-Fock exchange integral.
+* The PBE0 hybrid functional intends to physically enhance the PBE-GGA XC functional. Based on adiabatic approximation, using the PBE functiona as the reference, it expands this functional using the energy difference between the exchange functional and the Hatree-Fock exchange energy as the perturbation, by replacing 1/4 of the PBE by the Hartree-Fock:
+$$
+E_{xc}^{PBE0} = E_{xc}^{PBE} + \frac{1}{4}(E_x^{HF}-E_x^{PBE})
+$$
+* The advantages of this functional are its simple form, small number of parameters, and high reproducibility of chemical properties.
+* The HSE hybrid functional extends the PBE XC functional by mixing the Hatree-Fock exchange integral only for the short range part
+$$
+E_{xc}^{HSE} = a E_x^{SR-HF} + (1-a)E_x^{PBE} + E_c^{PBE}
+$$
+* Here, $E_x^{SR-HF}$ is the short-range part of the Hatree-Fock exchange integral, which is separated by the error function. This functional uses $a = 1/4$, which is the same with the PBE0 functional.
+<!-- Tsuneda end -->
+
 #### Dispersion-corrected methods
 * One of the serious shortcomings of standard DFT methods is the inability to describe the dispersion forces (part of the van der Waals-type interactions).
 * Many functionals provide a purely repulsive interaction between rare gas atoms, while others describe a weak stabilization interaction, but fail to have the correct $R^{-6}$ long-range distance behavior.
