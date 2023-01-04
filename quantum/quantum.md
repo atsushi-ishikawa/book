@@ -335,6 +335,34 @@ $$
 <!-- Tsuneda end -->
 
 #### Dispersion-corrected methods
+<!-- Tsuneda start -->
+* By definition, the vanr der Waals interaction is a collective term that includes dipole-dipole, dipole-induced dipole, and dispersion interactions.
+* The dipole-dipole interaction is the electrostatic interaction between permanent dipoles in polar systems. For the interactions between systems A and B, the corresponding potential is given classically as
+$$
+V_{\mu-\mu} = -\frac{\mu_A \mu_B}{R_{AB}^3}
+$$
+* where $\mu_X$ is the permanent dipole of system X, and $R_{AB}$ is the distance between systems A and B.
+* In the Kohn-Sham equation, this interaction is contained as a part of the Coulomb interaction.
+* The dipole-induced dipole interaction is the interaction between the polar and non-polar systems. Assuming the permanent dipole moment of polar system A as $\mu_A$, and the polarizability of the non-polar system B as $\alpha_B$, which is the linear response of an electric field producing the induced dipole moment in B. The classical potential of this interaction is given as
+$$
+V_{\mu-\alpha} = -\frac{{\mu_A}^2 \alpha_B}{{R_{AB}}^6}
+$$
+* Because this interaction is very weak, the solubility of polar molecules in non-polar solvent is generally low.
+* This interaction is also included in the conventional Kohn-Sham DFT calculations.
+* The dispersion interaction is a universal interaction, which acts even between bodies with neither charge nor multipole moments. As a classical expression, using the perturbation theory, London formulated the pontential between two heterogeneous bodies as
+$$
+V_{\rm disp} = -\frac{3}{2}\frac{\alpha_A\alpha_B}{{R_{AB}}^6}\frac{I_A I_B}{I_A + I_B}
+$$
+* where $I_X$ is the ionization potential of system X.
+* The dispersion interaction can be interpreted as the interaction between two dipole moments: one is an instantaneous dipole moment caused by a fluctuation of the electron distribution (e.g. in system A). The other is an induced dipole moment in system B, which is due to the electric field formed by the instantaneous dipole moment in system A.
+* In other words, two spatially separated electron distributions flucturate around their equilibrium distributions, and this produces the dispersion interaction between the two bodies.
+* The dispersion interaction is the only component in the van der Waals interaction that is not included in the Kohn-Sham DFT calculations with conventional correlation functionals.
+
+* Most of the conventional GGA correlation functionals have been developed by electron density gradient corrections to the LDA correltion functional, or by incorporating the dynamical correlation due to the correlation hole condition.
+* Since these fuctionals contain only short-range correlations, they cannot properly describe the dispersion interaction even qualitatively.
+* Therefore it is reasonable to explicitly supplment the dispersion interaction to these functionals, and various types of dispersion corrections have been suggested.
+<!-- Tsuneda end -->
+
 * One of the serious shortcomings of standard DFT methods is the inability to describe the dispersion forces (part of the van der Waals-type interactions).
 * Many functionals provide a purely repulsive interaction between rare gas atoms, while others describe a weak stabilization interaction, but fail to have the correct $R^{-6}$ long-range distance behavior.
 * Although the dispersion is a short-ranged weak interaction, it is cumulative, and therefore becomes increasingly important as the system gets larger.
