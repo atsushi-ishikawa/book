@@ -361,6 +361,7 @@ $$
 * Most of the conventional GGA correlation functionals have been developed by electron density gradient corrections to the LDA correltion functional, or by incorporating the dynamical correlation due to the correlation hole condition.
 * Since these fuctionals contain only short-range correlations, they cannot properly describe the dispersion interaction even qualitatively.
 * Therefore it is reasonable to explicitly supplment the dispersion interaction to these functionals, and various types of dispersion corrections have been suggested.
+
 <!-- Tsuneda end -->
 
 * One of the serious shortcomings of standard DFT methods is the inability to describe the dispersion forces (part of the van der Waals-type interactions).
