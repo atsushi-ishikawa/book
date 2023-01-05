@@ -1,13 +1,15 @@
 ## 4. Theoretical Background of Electrocatalysis
-#### basic
+#### Basic
 * The reversible potential, also called equilibrium potential, is a voltage at which there is no net ion flux.
 
-* The potential difference between the anode and the cathode gives rise to a variation in the electrostatic potential through the cell. Since the electrolyte is conducting, there is no electrical field there and the potential is constant. The potential variation happens in the so-called dipole layer. They are formed near the two electrodes and sets up strong electrical fields there. The field is set up by the electrons in the electrode (or holses for a positive electrode) and the counterions in the electrolyte.
+<!-- Norskov begin -->
+* The potential difference between the anode and the cathode gives rise to a variation in the electrostatic potential through the cell. Since the electrolyte is conducting, there is no electric field there and the potential is constant. The potential variation happens in the so-called dipole layer. They are formed near the two electrodes and sets up strong electric fields there. The field is due to the electrons in the electrode (or holses for a positive electrode) and the counterions in the electrolyte.
 * We will discuss three? important ways in which elementary surface electrochemical reactions may differ from their gas-phase counterparts:
 	1. The chemical potential of the electrons entering the reaction is controlled by the potential of the electrode. This is by far the largest effect. Changing the potential by 1 V changes the reaction free energy by 1 eV, when one $e^{-}$ is involved, for example.
 	2. The surface species will be solvated by the electrolyte. This effect is notably larger for water due to the hydrogen bonding network.
 	3. The electronic field at the solid-electrolyte interface will change the adsorption energy.
 
+* For elementary processes involving charge transfer at the surface, one can define a potential energy diagram for the process completely as for other surface processes.
 * Since the energy of the electron entering is now potential-dependent, it means that the potential energy diagram becomes potential-dependent.
 * The energy-scaling relationship also holds in the electrochemical reaction. This means that one can tune the activation energy by shifting the reaction energy, as
 $$
@@ -32,7 +34,8 @@ $$
 which is the Tafel equation. A plot of the logarithm of the rate versus U should give a linear plot, known as the **Tafel plot**, with slope $\gamma$.
 * One can calculated the **polarization curve** (current density vs. potential) from the theoretical PED.[Hansen, JPC.C, 2014, 118, 6706]
 
-#### example: OER/ORR
+#### The overpotential in electrocatalytic processes
+* Free energy diagrams for full electrocatalytic reactions are as useful in understanding surface electrocatalysis as those introduced for heterogeneous catalysis.
 * Since energy barriers are quite small for proton transfer reactions and since the barrier scales with the reaction energy, it is often useful to consider simplified free energy diagrams where only the energies of intermediates are included.
 * The potential dependence of the reaction is easily seen by showing the variation for the free energy diagram with potential.
 * For all the electrocatalysts, the OER does not start to have an applicable current density $j$ until a substantial overpotential
@@ -45,7 +48,7 @@ is applied.
 * The OER/ORR is considered possible if and only if all the involved reaction steps are neutral or downhill in the Gibbs free energy. For a given reaction we can determine the lowest potential at which this is the case. This is the limiting potential.
 * If one neglect the barrier, this would be a lower bound to the overpotential.
 
-* We can write the free energy change for any elementary step $i$ iin an electrochemical reaction with a transfer of one electron and a proton as 
+* We can write the free energy change for any elementary step $i$ in an electrochemical reaction with a transfer of one electron and a proton as 
 $$
 \Delta G_i(U) = \Delta G_{0,i} \pm eU
 $$
@@ -54,7 +57,7 @@ where the sign of the last term depends on whether the electron transfer is from
 $$
 U_{L,i} = \frac{\mp\Delta G_{0,i}}{e}
 $$
-* For the ORR, the electrons are transferred from the surface to the reactant (thus plus sign). The minimum of the U for the elementary steps defines the potential where all steps are exergonic, and this potential is termed the **limiting potential** for the reaction
+* For the ORR, the electrons are transferred from the surface to the reactant (thus plus sign). The minimum of the U for the elementary steps defines the potential where all steps are exergonic, and this potential is termed the *limiting potential* for the reaction
 $$
 U_{L,red} = \min(U_{L,i})
 $$
@@ -70,6 +73,7 @@ and the theoretical overpotential is
 $$
 \eta_{ox} = U_{L,ox} - U_{eq}
 $$
+<!-- Norskov end -->
 
 #### Nernst equation
 * The relationship between the electrode potential and the activity is expressed by the **Nernst equation**. For the reaction $\ce{aA + bB <=> cC + dD}$,
