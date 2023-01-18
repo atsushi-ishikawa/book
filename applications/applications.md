@@ -575,8 +575,8 @@ $$
 * Pt is commonly used electrode material, but there is a considerable overpotential associated with this reaction over Pt.
 
 #### Reaction mechanism
-* Norskov et al. have shown that, based on the DFT-calculated energetics, for Pt(111) the adsorbed oxygen tend to be so stable at high potentials that the proton and electron transfer becomes impossible.[J.Phys.Chem.B, 108, 17886, 2004] By lowering the potential, the stability of oxygen decreases and the reaction many proceed. This is suggested to be the origin of overpotential for ORR over Pt.
-* They analyzed both the dissociative mechanism and the associative mechanism. The dissociative one in acidic solution occurs as follows;
+* Norskov et al. have shown that, based on the DFT-calculated energetics, for Pt(111) the adsorbed oxygen tend to be so stable at high potentials that the proton and electron transfer becomes impossible.[J.Phys.Chem.B, 108, 17886, 2004] By lowering the potential, the stability of oxygen decreases and the reaction may proceed. This is suggested to be the origin of overpotential for ORR over Pt.
+* They analyzed both the dissociative and the associative mechanisms. The dissociative one in acidic solution occurs as follows;
 $$
 \begin{align*}
 \ce{& 1/2O2 + $*$     & &-> O$*$} \\
@@ -584,7 +584,7 @@ $$
 \ce{& OH$*$ + H+ + e- & &-> H2O + $*$}
 \end{align*}
 $$
-* In the associative mechanism O2 does not dissociate before it is hydrogenated;
+* On the contrary to the above, O2 does not dissociate before it is hydrogenated in the associative mechanism;
 $$
 \begin{align*}
 \ce{& O2 + $*$             & &-> O2$*$} \\
@@ -594,7 +594,7 @@ $$
 \ce{& OH$*$ + ( H+ + e- )  & &-> H2O + $*$}
 \end{align*}
 $$
-Here the peroxy intermediate is involved, therefore the associative mechanism is also referred as the peroxo mechanism.
+* Here the peroxy intermediate is involved, therefore the associative mechanism is also referred as the peroxo mechanism.
 * The effect of the electrode potential $U$ on the potential energy diagram was brought about by shifting the energy of electron by $-eU$.
 * At a pH different from 0, they corrected the free energy of $\ce{H+}$ by the concentration dependence of the entropy, i.e. $G(pH) = -kT\ln[\ce{H+}] = kT\ln 10 \times pH$.
 * The relationship $U = 0\ V$ corresponds to the reaction running by short circuiting the cell or the gas-phase hydrogen oxidation reaction.
