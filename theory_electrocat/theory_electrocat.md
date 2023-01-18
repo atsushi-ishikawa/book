@@ -104,7 +104,7 @@ $$
 * A vertical line involves $\ce{H+}$ or $\ce{OH-}$ but not electrons
 * A sloping line involve $\ce{H+}$, $\ce{OH-}$, and electrons.
 
-##### e.g. water electrolysis
+##### Example: Water electrolysis
 * anode reaction: $\ce{H2 <=> 2H+ + 2e-}$
 * cathode reaction: $\ce{1/2O2 + 2H+ + 2e- <=> H2O}$
 $$
@@ -113,13 +113,13 @@ E_1 &= E^0 - 2.303\frac{RT}{zF}\log\frac{1}{[H^+]^2} = - 0.059\times pH \\
 E_2 &= E^0 - 2.303\frac{RT}{zF}\log\frac{1}{[H^+]^2} = 1.229 - 0.059\times pH
 \end{split}
 $$
-* Below the E_1 line, the reduction is preferred in the anode reaction thus H2 is stable. Above it, H+ is formed.
-* Similarly in E_2 line, below it the H2O is stable but above it O2 is generated.
+* Below the $E_1$ line, the reduction is preferred in the anode reaction thus H2 is stable. Above it, H+ is formed.
+* Similarly in the $E_2$ line, below it the H2O is stable but above it O2 is generated.
 
 * **Surface Pourbaix diagrams** predict the thermodynamically most stable adsorbed species and thier coverage as a function of pH and the potential.
 * The Pourbaix diagram can be also made for the molecular systems, which is interpreted as the phase diagram that shows the pH and potential at which certain molecular species are energetically stable.
 
-##### ORR example
+##### Example: Oxygen reduction reaction (ORR)
 * Hansen et al. have shown that the ab initio surface Pourbaix diagram is quite useful in analyzing the oxygen reduction reaction (ORR) by metals such as Ag, Pt, or Ni.[PCCP]
 $$
 \ce{O2 + 4H+ + 4e- -> 2H2O}
@@ -157,7 +157,7 @@ where $\Delta E$ is the total energy $\Delta ZPE$ is the change in zero-point en
 
 * We can start from the one-dimensional version of Pourbaix diagram by fixing pH. See Fig.X, in which the Gibbs energy of O* and OH* on Ag(111) at pH = 0 are plotted as a function of potential $U_{\rm SHE}$ and pH. The Gibbs energy dependence on these variables are evaluated by Eq.X. In the plot, the lowest line determines the surface with the lowest Gibbs energy at a given potential.
 * The usual (or two-dimensional) Pourbaix diagram is readily plotted by extending this plot by evaluating the Gibbs energy by $U_{\rm SHE}$ and pH; see Fig.X.
-* The potential for reversible water oxidation will show up as lines with a slope of $-k_B T/e\ln 10$ (or $-0.059*pH (\text{in V, at 298 K})$) in the Pourbaix diagram.
+* The potential for reversible water oxidation will show up as lines with a slope of $-k_B T/e\ln 10$ (or $-0.059 pH (\text{in V, at 298 K})$) in the Pourbaix diagram.
 * From this Pourbaix diagram, following features are found;
   * at acidic condition, dissolution of the Ag electrode occurs at $U_{\rm SHE} > 0.8\ V$.
   * at moderately acidic condition, water oxidation occurs before the Ag dissolution.
