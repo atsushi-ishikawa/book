@@ -547,8 +547,8 @@ $$
 * According to their analysis, RuO2 has near-optimal energetics on the OER. This confirms the experimental trend.
 
 ##### Using Pourbaix diagram
-* Bajdich et al. employed the DFT-calculated Pourbaix diagram to the OER by Co-oxides. Their calculated (volume) Pourbaix diagrams shows that $\ce{\beta-CoOOH}$ is the active where there the OER occurs in alkaline media.[JACS, 135, 13521, 2013]
-* From the 2D-activity map of overpotential vs. ($\Delta G_{\rm OH}, \Delta G_{\rm O}-\Delta G_{\rm OH}$), they demonstrated that the overpotential of the Co-oxide can be lowered by surface substitution of Co by Ni.
+* Bajdich et al. employed the DFT-calculated Pourbaix diagram to the OER by the cobalt oxides. Their calculated (volume) Pourbaix diagrams shows that $\ce{\beta-CoOOH}$ is the active material in alkaline condition.[JACS, 135, 13521, 2013]
+* From the 2D-activity map of overpotential vs. ($\Delta G_{\rm OH}, \Delta G_{\rm O}-\Delta G_{\rm OH}$), they demonstrated that the overpotential can be lowered by substituting surface cobalt atoms by nickel atoms.
 
 ##### Descriptors
 * Rossmeisl et al. have found that, for metals and rutile oxides, the oxygen atom binding energy is a good descriptor for the OER activity.[Chem.Phys., 2005, 319, 178; J. Electroanal.Chem., 2007, 607, 83] The scaling relationship of OH, OOH, and O binding energy on surface enables one to write the volcano plot between the OER activity and the O atom binding energy. For the surfaces that binds oxygen too strongly, the potential is limited by the OOH* formation, whereas for surfaces that bind oxygen too weakly, the potential is limited by the OH oxidation.
