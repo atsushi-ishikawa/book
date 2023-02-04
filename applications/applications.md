@@ -495,7 +495,7 @@ $$
 * Electrochemical water splitting can produce hydrogen from abundant water, using electricity. If the electricity is from renewable energy source, this approach would be a clean process for energy conversion.
 * The conversion of solar radiation into fuels can be done in a direct manner, i.e. excited electrons induced by photons or indirect manner, i.e. by electrolysis using a potential difference obtained from photovoltaic cell etc.
 * The overall process of water splitting comprises two half reactions: the **oxygen evolution reaction (OER)** and the **hydrogen evolution reaction (HER)**.
-* In both cases, effective catalysis is needed.
+* The HER takes place on cathode, and the OER does on anode of the cell. In both cases, effective catalysis is needed.
 * Extensive research on this subject has shown that the potential needed to split water at rates provided by the solar flux (e.g., 10 $mA/cm^2$) is limited primarily by the OER, since none of the currently known catalysts for this reaction have and overpotential that is less thant $\approx 230 mV$ at the atove rate.[Mater.Chem.Phys., 14, 397, 1986]
 * Thus an important challenge is the discovery and development of OER catalysts that can reduce the overpotential for the OER.
 * Precious metals such as Pt, Ru, and Ir-based compounds are well-known electrocatalyst for water splitting.[J. Electrochem. Soc. 2005, 152, J23−J26; J. Phys. Chem. Lett. 2012, 3, 399−404]
@@ -508,6 +508,8 @@ $$
 ##### Catalytic materials
 * A number of metals and alloys have been tested as electrocatalysts. As a result, Ni and some noble metals are thought to be the best anode materials in alcaline and acid solutions, respectively.
 * The oxide layer is always formed at the surface in the potential regions at which oxygen evolves, even if an inert metal is used as the anode material. Therefore, the oxide formed on the metal substrate, and it always affects the reaction mechanism and electrocatalysis for the OER.
+* Rosmeisel et al. have that the metal oxide has the lower oveerpotential for the OER, compared with the pure metals.
+* Among several metal oxides, RuO2 is often used as it has high catalytic activity. Other than RuO2, IrO2 is also used frequently.
 
 * ABO3 perovskite oxides are of particular interest because of their high catalytic OER activities, some of which are comparable to those of noble metal oxides such as RuO2 and IrO2.[NatureCommn, 4, 2439, 2013; AngewChem, 53, 4582, 2014; JPCLett, 3, 399, 2012]
 
@@ -529,7 +531,7 @@ $$
 \ce{OOH$*$      &<=> O2 + $*$ + H+ + e-} \\
 \end{split}
 $$
-* From the Gibbs energy changes along these reaction steps, we can know which step is thermodynamically most unfavorable step: This **potential determining step** of a given pathway is defined as the last step to become exergonic when the potential is modified. Identifying it might be helpful for further improvement on the OER activity.
+* From the Gibbs energy changes along these reaction steps, we can know which step is thermodynamically most unfavorable step: This **potential determining step** of a given pathway is defined as the last step to become exergonic when the external potential is applied. Identifying it might be helpful for the improvement on the OER activity.
 * This model is purely thermodynamic and assumes that the kinetic barriers i.e. the proton-transfer processes have easily surmountable barriers.[A. A. Peterson, F. Abild-Pedersen, F. Studt, J. Rossmeisl, J. K. Norskov, Energy Environ. Sci. 2010, 3, 1311–1315] This is indeed confirmed by theoretical study, where the barriers are approximately 0.15-0.25 eV,[V. Tripkovic, E. Skffllason, S. Siahrostami, J. K. Nørskov, J. Rossmeisl, Electrochim. Acta 2010, 55, 7975–7981].
 
 * Quantity often interested is the **overpotential ($\eta$)**. We can calculate it from above $\Delta Gs$ (denoted as $\Delta G_{1-4}$), as
@@ -537,8 +539,8 @@ $$
 \eta_{\rm OER} = \max[\Delta G_1, \Delta G_2, \Delta G_3, \Delta G_4] - 4.92/4
 $$
 * Note that the reaction Gibbs energy (4.92 eV) is divided by four, which is a number of elementary reactions.
-* There is also a related term **theoretical limiting potential** of electrochemical reaction, which is defined as the minimal potential applied when all the steps become downhill in energy.
-* The Gibbs energy change is calculated as $\Delta G = \Delta E  + \Delta ZPE - T\Delta S - eU$. Here, $E$ means total (electronic plus nuclear repulsion) energy, and $ZPE$ is the zero-point vibrational energies. $U$ is the potential difference between electrode and counter electrode. Therefore, we can change $\Delta G$ by varying $U$. This is a great advantage of electrochemical reactions over the conventional catalytic reactions in gas and solid phases.
+* There is also a related word i.e. **theoretical limiting potential** of electrochemical reaction, which is defined as the minimal potential applied when all the steps become downhill in energy.
+* The Gibbs energy change is calculated as $\Delta G = \Delta E  + \Delta ZPE - T\Delta S - eU$. Here, $E$ means total (electronic plus nuclear repulsion) energy, which is often calculated by first-principle method. $ZPE$ is the zero-point vibrational energies. $U$ is the potential difference between electrode and counter electrode. Therefore, we can change $\Delta G$ by varying $U$. This is a great advantage of electrochemical reactions over the conventional catalytic reactions in gas and solid phases.
 
 * Man et al compared the energetics of the OER over various oxides i.e. rutile, perovskite, spinel, rock salt, bixbyite.[ChemCatChem, 3, 1159, 2011] They found a universal scaling relationship between the binding energy of OOH* and OH*
 * This relationship led to an approximately constant difference between the binding energy of OOH* and OH*, which in turn defines the lowest possible theoretical overpotential for the OER on a wide variety of oxides.

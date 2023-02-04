@@ -31,8 +31,11 @@ r(U) &= \nu \exp(-E_a(U)/k_B T)  \\
      &= A \exp(-\gamma eU / k_B T)
 \end{split}
 $$
-which is the Tafel equation. A plot of the logarithm of the rate versus U should give a linear plot, known as the **Tafel plot**, with slope $\gamma$.
+which is the Tafel equation. A plot of the logarithm of the rate versus $U$ should give a linear plot, known as the **Tafel plot**, with the slope of $\gamma$.
 * One can calculated the **polarization curve** (current density vs. potential) from the theoretical PED.[Hansen, JPC.C, 2014, 118, 6706]
+
+#### Butler-Volmer, exchange current density, overpotential
+* asdf
 
 #### The overpotential in electrocatalytic processes
 * Free energy diagrams for full electrocatalytic reactions are as useful in understanding surface electrocatalysis as those introduced for heterogeneous catalysis.
